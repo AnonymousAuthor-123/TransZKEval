@@ -1,7 +1,5 @@
 # TransZKEval: Unraveling LLM Behaviors in ZKP Circuit Translation
 
-> A Systematic Framework for Evaluating LLMs on Cross-Language Translation to Circom ZK Circuits with Retrieval-Augmented Generation and Error Taxonomy
-
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-green.svg)]()
 [![Circom 2.1](https://img.shields.io/badge/Circom-2.1.4-orange.svg)]()
 [![SnarkJS](https://img.shields.io/badge/SnarkJS-latest-yellow.svg)]()
