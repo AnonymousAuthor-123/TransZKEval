@@ -1,0 +1,96 @@
+{
+  "baseline": {
+    "embedding": "BAAI/bge-small-en-v1.5",
+    "query": "function name, underscores replaced by spaces",
+    "code_chunks": 3,
+    "document_chunks": 2,
+    "code_granularity": "Persisted template-level code records",
+    "document_granularity": "Persisted documentation chunks",
+    "index": {
+      "code": {
+        "hnsw": {
+          "space": "l2",
+          "ef_construction": 100,
+          "ef_search": 100,
+          "max_neighbors": 16,
+          "resize_factor": 1.2,
+          "sync_threshold": 1000
+        },
+        "spann": null,
+        "embedding_function": null
+      },
+      "doc": {
+        "hnsw": {
+          "space": "l2",
+          "ef_construction": 100,
+          "ef_search": 100,
+          "max_neighbors": 16,
+          "resize_factor": 1.2,
+          "sync_threshold": 1000
+        },
+        "spann": null,
+        "embedding_function": null
+      }
+    },
+    "reranker": false,
+    "relevance_threshold_filter": false,
+    "visible_chunk_crop": "1500-character budget; head 1000 + tail 500 plus truncation marker"
+  },
+  "variants": {
+    "rag_expanded": {
+      "query": "original_function_name",
+      "encoder": "BAAI/bge-small-en-v1.5",
+      "selection": "old 3+2 preserved; exact raw L2 appends new unique content",
+      "code_k": 6,
+      "doc_k": 4,
+      "rerank": false
+    },
+    "rag_enhanced": {
+      "query_views": [
+        "function_name",
+        "language_and_source"
+      ],
+      "query_prefix": "Instruct: Given a source program, retrieve Circom templates and language documentation useful for translating it to Circom 2.1.4.\nQuery: ",
+      "dense_search": "exact cosine, float64 scoring, stable corpus ID tie order",
+      "lexical": "BM25 k1=1.5 b=0.75; unique query terms",
+      "channel_top_k": 20,
+      "fusion": "RRF constant=60, four channels",
+      "candidate_pool_per_kind": 20,
+      "include_original_candidates": true,
+      "reranker": "BAAI/bge-reranker-v2-m3",
+      "reranker_max_length": 1024,
+      "code_k": 3,
+      "doc_k": 2,
+      "embedding_max_length": 512,
+      "torch_dtype": "float32",
+      "deduplication": "complete Circom token stream excluding whitespace/comments; doc exact text",
+      "embedding_model": "BAAI/bge-small-en-v1.5"
+    },
+    "rag_new_embedding": {
+      "query": "original_function_name",
+      "encoder": "Qwen/Qwen3-Embedding-0.6B",
+      "query_prompt": "",
+      "normalize_embeddings": false,
+      "distance": "l2",
+      "index": "HNSW like baseline",
+      "embedding_max_length": 512,
+      "torch_dtype": "float32",
+      "code_k": 3,
+      "doc_k": 2,
+      "BM25": false,
+      "fusion": false,
+      "rerank": false,
+      "deduplicate": false
+    }
+  },
+  "corpus_counts": {
+    "code": 3405,
+    "doc": 128
+  },
+  "important_scope": [
+    "rag_expanded increases retrieved context on the same corpus; it is not a larger-corpus experiment.",
+    "rag_enhanced changes multiple retrieval components; it is a pipeline sensitivity experiment, not a single-component ablation.",
+    "All three variants were generated using deepseek-v4-pro only; no claim about enhanced-RAG behavior across eleven models follows.",
+    "The original 80.35% relevance judgment cannot be rederived from performance metrics or reranker scores. An item-level relevance audit is needed to substantiate it."
+  ]
+}

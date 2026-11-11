@@ -1,0 +1,49 @@
+{
+  "prepared_for_report_alignment": "2026-11-10",
+  "random_sample": {
+    "seed": 20261027,
+    "N": 3405,
+    "n": 346,
+    "method": "simple random sampling without replacement; Python random.Random.sample; sorted original indices",
+    "source_sha256": "81dbe1dd898d67f478008eadf9c13b36c804e2729b12616ab6d9b1f1da6bb6b8"
+  },
+  "application_analysis": {
+    "N": 221,
+    "method": "Application-focused supplement to the initial functional analysis, including additional AI and DeFi candidates, with the saved primary-category recoding.",
+    "counts": {
+      "AI": 42,
+      "Statistics": 5,
+      "DeFi": 92,
+      "Blockchain and governance rules": 7,
+      "Cryptographic arithmetic and proof components": 36,
+      "Data structures and algorithms": 27,
+      "Games and interaction": 3,
+      "Other": 9
+    }
+  },
+  "source_record_sha256": {
+    "manifest.json": "13ac4041c7c340e0639a05f084b12fa6eaf818c92ca1757021f62ce0dfd26899",
+    "sample.jsonl": "9b24721a19c2ad2db77f1e272f25f47ed5f977275127a17e24768f8ba815d701",
+    "application-focused-manifest.json": "4816211dfa2f44a24a162bb61b3257de788228b8c725ac2ca1be0fd7ec354a3d",
+    "application-focused-reclassified.jsonl": "b6504d50eff81c32335332829acb1fde371047efe1238b27bc6be4671a95b205"
+  },
+  "finite_population_calculation": {
+    "N": 3405,
+    "z": 1.96,
+    "p": 0.5,
+    "error": 0.05,
+    "n0": 384.1599999999999,
+    "corrected_n": 345.30347187024825,
+    "rounded_up_n": 346
+  },
+  "final_task_allocation": {
+    "Simple Control-Flow": 20,
+    "Artificial Intelligence": 15,
+    "DeFi Applications": 15,
+    "Games & Interaction": 10,
+    "Cryptography": 10,
+    "Blockchain": 10,
+    "Data Structures": 10,
+    "Statistics": 10
+  }
+}
