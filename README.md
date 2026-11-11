@@ -6,8 +6,7 @@ TransZKEval evaluates translation from Python, Java, Rust, and Go into Circom. T
 
 | Material | Location |
 | --- | --- |
-| Benchmark construction report | [PDF](docs/benchmark-construction/TransZKEval_Benchmark_Construction_Report.pdf), [text](docs/benchmark-construction/TransZKEval_Benchmark_Construction_Report.md), [LaTeX](docs/benchmark-construction/TransZKEval_Benchmark_Construction_Report.tex) |
-| Code sample and application analysis | [Construction records](docs/benchmark-construction/analysis/) |
+| Benchmark construction report | [PDF](docs/benchmark-construction/TransZKEval_Benchmark_Construction_Report.pdf) |
 | Source programs and reference circuits | [Dataset](dataset/) |
 | Exemplar and evaluation task partition | [Task IDs](dataset/evaluation_partition.json) |
 | Translation code and prompts | [Generation scripts](generate/), [prompt guide](docs/prompt-templates.md) |
